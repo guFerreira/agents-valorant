@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:agents_valorant/app/model/abilitie_model.dart';
 import 'package:agents_valorant/app/model/agent_model.dart';
+import 'package:agents_valorant/app/model/role_model.dart';
 
 class WraperAgent {
-  String status;
+  int status;
   List<Agent> data;
 
   WraperAgent({
@@ -14,14 +16,16 @@ class WraperAgent {
   Map<String, dynamic> toMap() {
     return {
       'status': status,
-      'data': data?.map((x) => x.toMap())?.toList(),
+      'data': data.map((x) => x.toMap()).toList(),
     };
   }
 
   factory WraperAgent.fromMap(Map<String, dynamic> map) {
     return WraperAgent(
       status: map['status'],
-      data: List<Agent>.from(map['data']?.map((x) => Agent.fromMap(x))),
+      data: List<Agent>.from(map['data'].map((x) {
+        return Agent.fromMap(x);
+      })),
     );
   }
 

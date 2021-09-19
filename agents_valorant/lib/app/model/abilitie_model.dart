@@ -25,9 +25,9 @@ class Abilitie {
   factory Abilitie.fromMap(Map<String, dynamic> map) {
     return Abilitie(
       slot: map['slot'],
-      displayName: map['displayName'],
-      description: map['description'],
-      displayIcon: map['displayIcon'],
+      displayName: map['displayName'] ?? '',
+      description: map['description'] ?? '',
+      displayIcon: map['displayIcon'] ?? '',
     );
   }
 

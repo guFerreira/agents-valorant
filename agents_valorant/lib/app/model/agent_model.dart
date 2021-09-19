@@ -30,7 +30,7 @@ class Agent {
       'bustPortrait': bustPortrait,
       'killfeedPortrait': killfeedPortrait,
       'role': role.toMap(),
-      'abilities': abilities?.map((x) => x.toMap())?.toList(),
+      'abilities': abilities.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -39,9 +39,9 @@ class Agent {
       uuid: map['uuid'],
       displayName: map['displayName'],
       description: map['description'],
-      bustPortrait: map['bustPortrait'],
+      bustPortrait: map['bustPortrait'] ?? '',
       killfeedPortrait: map['killfeedPortrait'],
-      role: Role.fromMap(map['role']),
+      role: Role.fromMap(map['role'] ?? {}),
       abilities: List<Abilitie>.from(
           map['abilities']?.map((x) => Abilitie.fromMap(x))),
     );

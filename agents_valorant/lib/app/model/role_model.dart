@@ -18,8 +18,8 @@ class Role {
 
   factory Role.fromMap(Map<String, dynamic> map) {
     return Role(
-      displayName: map['displayName'],
-      displayIcon: map['displayIcon'],
+      displayName: map['displayName'] ?? '',
+      displayIcon: map['displayIcon'] ?? '',
     );
   }
 
